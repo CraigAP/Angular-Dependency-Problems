@@ -1,0 +1,10 @@
+Latest version of everything.
+VS 2015
+Node
+TypeSript - may need to update path environment variable
+In project.json, intellisense helps you select latest version
+
+My need to set project/properties/debug/launch url
+
+tsConfig.json - at top,     "compileOnSave": true,
+
