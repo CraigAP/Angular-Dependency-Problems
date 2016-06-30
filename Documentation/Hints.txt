@@ -8,3 +8,7 @@ My need to set project/properties/debug/launch url
 
 tsConfig.json - at top,     "compileOnSave": true,
 
+In app.ts, start with:
+/// <reference path="../../node_modules/angular2/typings/browser.d.ts" />
+
+

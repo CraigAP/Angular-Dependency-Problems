@@ -1,4 +1,5 @@
 ﻿/// <binding Clean='clean' />
+/// <binding BeforeBuild='copy-assets' />
 "use strict";
 
 var gulp = require("gulp"),
@@ -8,6 +9,7 @@ var gulp = require("gulp"),
     uglify = require("gulp-uglify");
 
 var webroot = "./wwwroot/";
+var nodeModules = "./node_modules/";
 
 var paths = {
     js: webroot + "js/**/*.js",
@@ -43,3 +45,27 @@ gulp.task("min:css", function () {
 });
 
 gulp.task("min", ["min:js", "min:css"]);
+
+gulp.task('copy-assets', function () {
+	gulp.src(nodeModule + 'angular2/bundles/angular2.js').pipe(gulp.dest('./wwwroot/lib'));
+	gulp.src(nodeModule + 'angular2/bundles/angular2-polyfills.js').pipe(gulp.dest('./wwwroot/lib'));
+	gulp.src(nodeModule + 'systemjs/dist/system.src.js').pipe(gulp.dest('./wwwroot/lib'));
+	gulp.src(nodeModule + 'rxjs/rx.js').pipe(gulp.dest('./wwwroot/lib'));
+}
+/*
+gulp.task('copy-assets', function () {
+	var assets =
+		{
+			lib: [
+					nodeModule + 'angular2/bundles/angular2.js',
+					nodeModule + 'angular2/bundles/angular2-polyfills.js',
+					nodeModule + 'systemjs/dist/system.src.js',
+					nodeModule + 'rxjs/rx.js'
+			]
+			//, css: ['./node_modules/bootstrap/dist/css/bootstrap.css']
+		};
+	_(assets).forEach(function (assets, type) {
+		gulp.src(assets).pipe(gulp.dest('./wwwroot/' + type));
+	});
+});
+*/

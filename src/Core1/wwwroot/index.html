@@ -1,10 +1,36 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+	<meta charset="utf-8" />
+	<script src="lib/systemjs/dist/system.src.js"></script>
+	<script>
+		System.config({
+			map: {
+				"rxjs": 'lib/rxjs'
+			},
+			packages: {
+				'scripts': {
+					format: 'cjs',
+					defaultExtension: 'js'
+				},
+				'rxjs': { defaultExtension: 'js' }
+			}
+		});
+	</script>
+
+	<script src="lib/rxjs/rx.js"></script>
+	<script src="lib/rxjs/Subject.js"></script>
+	<script src="lib/rxjs/Observable.js"></script>
+	<script src="lib/angular2.js"></script>
+	<script src="lib/angular2-polyfills.js"></script>
+
+	<script>
+	System.import('scripts/main').then(null, console.error.bind(console));
+	</script>
+	<title></title>
 </head>
 <body>
-	Hello, Hello!!!
+	<my-app>Loading...</my-app>
+
 </body>
 </html>
